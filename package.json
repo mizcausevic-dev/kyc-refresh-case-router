@@ -1,0 +1,7 @@
+{
+  "name": "kyc-refresh-case-router",
+  "version": "0.1.0",
+  "private": true,
+  "description": "WordPress and FinTech operator surface for KYC refresh routing, beneficial-owner drift, review evidence, and account-safe remediation posture.",
+  "license": "AGPL-3.0-or-later"
+}
