@@ -190,7 +190,17 @@ function render_overview_cards(): string
 
 function render_overview(): string
 {
-    $body = '<section class="section"><div class="sh"><h2>Overview</h2><div class="note">where KYC refresh pressure surfaces first</div></div>' . render_overview_cards() . '</section>';
+    $body = '<section class="section"><div class="sh"><h2>Overview</h2><div class="note">where KYC refresh pressure surfaces first</div></div>' . render_overview_cards() . '</section>'
+        . '<section class="section"><div class="sh"><h2>Board questions this answers</h2><div class="note">identity exposure · unblock cost · control investment</div></div><div class="board">'
+        . '<article class="pcard"><div class="ptop"><div class="pnum">01</div><div class="ppri">EXPOSURE</div></div><h3>Which accounts are unsafe to advance?</h3><p class="pdesc">Beneficial-owner packet gaps, stale sanctions screening, expiry drift, and missing final review memos stay visible before onboarding, payout, or treasury teams move the account forward.</p></article>'
+        . '<article class="pcard"><div class="ptop"><div class="pnum">02</div><div class="ppri">SAVINGS</div></div><h3>Where is manual review creating avoidable drag?</h3><p class="pdesc">The router ties documents, screening state, account lane, owner, and next action together so FinCrime, onboarding, and treasury teams stop rebuilding the same KYC case packet.</p></article>'
+        . '<article class="pcard"><div class="ptop"><div class="pnum">03</div><div class="ppri">INVEST</div></div><h3>Which refresh control deserves automation first?</h3><p class="pdesc">Critical and watch lanes show whether ownership evidence, sanctions recency, expiry alerts, or final decision memo alignment should receive the next platform investment.</p></article>'
+        . '</div></section>'
+        . '<section class="section"><div class="sh"><h2>Evidence model</h2><div class="note">signal · proof · decision</div></div><table class="ttbl"><thead><tr><th>Signal</th><th>Owner</th><th>Required proof</th><th>Decision supported</th></tr></thead><tbody>'
+        . '<tr><td><b>Beneficial-owner evidence</b></td><td>Onboarding Operations</td><td>Ownership packet, entity record, document recency, reviewer memo</td><td>Approve refresh, request repair, or block release</td></tr>'
+        . '<tr><td><b>Sanctions screening recency</b></td><td>FinCrime Operations</td><td>Screening timestamp, list source, exception note, escalation owner</td><td>Clear account, keep on watch, or escalate risk</td></tr>'
+        . '<tr><td><b>Final unblock posture</b></td><td>Platform Risk</td><td>Release memo, payout status, treasury check, account-safe decision</td><td>Advance, hold, or reroute the account lane</td></tr>'
+        . '</tbody></table></section>';
 
     return shell(
         '/',
