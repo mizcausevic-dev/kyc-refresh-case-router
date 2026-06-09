@@ -12,6 +12,27 @@ WordPress and FinTech control plane for KYC refresh routing, beneficial-owner ev
 
 This repo demonstrates the KYC-refresh primitive for Kinetic Gain Embedded: beneficial-owner evidence, sanctions recency, unblock posture, and review-safe routing exposed through one operator surface. In a real embedded setting, the same primitive lets FinTech teams keep refresh workflow, payout decisions, and identity-risk review aligned without shipping account changes blindly.
 
+## Product depth
+
+KYC Refresh Case Router turns identity-review drift into an account-safe decision packet. It gives FinCrime, onboarding, treasury, payout, platform-risk, and executive stakeholders one shared view before stale beneficial-owner packets, screening recency gaps, document expiry, or weak unblock memos create release risk.
+
+- Non-technical leaders see which accounts are unsafe to advance and why.
+- Technical and operations teams see the data contract: cases, lanes, refresh artifacts, screening recency, verification gates, and review posture.
+- go-to-market teams can explain identity governance, fewer payout holds, and safer onboarding decisions without hand-waving the operating layer.
+
+## What these repos have in common
+
+- **Risk, owner, proof, next action:** each surface turns a messy operational domain into a compact decision lane that leaders, operators, and technical teams can inspect together.
+- **Representative data, no live secrets:** the repos use synthetic records and public-safe evidence shapes only. No account, customer, bank, processor, credential, or production KYC data belongs in the public proof surface.
+- **Buyer-readable GTM:** the same page has to make sense to a founder, CFO, compliance lead, product owner, engineer, and investor reviewer without requiring a private walkthrough.
+- **Evidence before claims:** every route points back to concrete artifacts, gates, and review posture so the story is inspectable rather than just positioned.
+
+## Operating workflow
+
+1. Model the refresh lane: capture account cohort, owner, evidence packet, screening posture, and release pressure in one record.
+2. Score the release posture: separate healthy, watch, and blocked cases before payout, treasury, or onboarding teams move the account forward.
+3. Route the decision: turn the case into a defensible unblock, repair, or escalation path with one visible owner and next action.
+
 ## Routes
 
 - `/`

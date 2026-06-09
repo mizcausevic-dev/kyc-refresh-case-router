@@ -87,6 +87,15 @@ function shell(string $active, string $title, string $eyebrow, string $hero, str
     .pcard h3{margin:6px 0 8px; font-size:19px; font-weight:600} .pcard .pdesc{font-size:13.5px; color:var(--muted); line-height:1.55; margin:0 0 12px}
     .pcard .pnum{font-family:var(--mono); font-size:22px; font-weight:600; color:var(--green)} .pcard .ptop{display:flex; justify-content:space-between; align-items:center; margin-bottom:8px}
     .pcard .ppri{font-family:var(--mono); font-size:10px; padding:5px 10px; border-radius:999px; border:1px solid var(--line); color:var(--green); letter-spacing:.14em; background:rgba(55,255,139,.06)}
+    .depth-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:14px} @media (max-width:900px){.depth-grid{grid-template-columns:1fr}}
+    .depth-card{border:1px solid rgba(25,199,255,.2); border-radius:18px; padding:18px; background:linear-gradient(135deg, rgba(11,18,32,.90), rgba(12,24,42,.68)); box-shadow:var(--shadow)}
+    .depth-card h3{margin:8px 0 8px; font-size:24px}
+    .depth-card p,.depth-card li,.step{color:var(--muted); line-height:1.6}
+    .depth-card ul{margin:12px 0 0; padding-left:18px}
+    .depth-card li::marker{color:var(--green)}
+    .workflow{display:grid; gap:10px; margin-top:12px}
+    .step{border:1px solid var(--line2); border-radius:14px; padding:12px; background:rgba(6,10,18,.35)}
+    .step b{color:var(--text)}
     .ttbl{width:100%; border-collapse:separate; border-spacing:0; border:1px solid var(--line); border-radius:14px; overflow:hidden}
     .ttbl th,.ttbl td{padding:13px 14px; text-align:left; font-size:13.5px; vertical-align:top}
     .ttbl thead th{font-family:var(--mono); font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted2); border-bottom:1px solid var(--line); background:rgba(11,18,32,.5)}
@@ -138,7 +147,7 @@ function shell(string $active, string $title, string $eyebrow, string $hero, str
   {$body}
   <footer>
     <div>kyc-refresh-case-router · AGPL-3.0-or-later · synthetic demonstration data only</div>
-    <div><a href="https://github.com/mizcausevic-dev/">GitHub</a> · <a href="https://www.linkedin.com/in/mirzacausevic/">LinkedIn</a> · <a href="https://kineticgain.com/">Kinetic Gain</a></div>
+    <div><a href="/docs">Docs</a> · <a href="/verification">Verification</a> · <a href="https://github.com/mizcausevic-dev/kyc-refresh-case-router">Repo</a> · <a href="https://portfolio.kineticgain.com/">Portfolio</a> · <a href="https://suite.kineticgain.com/">Suite</a> · <a href="https://www.linkedin.com/in/miz-causevic/">LinkedIn</a> · <a href="https://kineticgain.com/">Kinetic Gain</a></div>
     <div>Routes: / · /kyc-lane · /refresh-queue · /review-posture · /verification · /docs</div>
   </footer>
 </div>
@@ -188,9 +197,48 @@ function render_overview_cards(): string
     return $html . '</div>';
 }
 
+function render_product_depth(): string
+{
+    return <<<HTML
+<section class="section">
+  <div class="sh"><h2>Product depth</h2><div class="note">what this actually does</div></div>
+  <div class="depth-grid">
+    <article class="depth-card">
+      <div class="ppri">KYC refresh operating system</div>
+      <h3>KYC Refresh Case Router turns identity-review drift into an account-safe decision packet.</h3>
+      <p>It gives FinCrime, onboarding, treasury, payout, platform-risk, and executive stakeholders one shared view before stale beneficial-owner packets, screening recency gaps, document expiry, or weak unblock memos create release risk.</p>
+      <ul>
+        <li>Non-technical leaders see which accounts are unsafe to advance and why.</li>
+        <li>Technical and operations teams see the data contract: cases, lanes, refresh artifacts, screening recency, verification gates, and review posture.</li>
+        <li>go-to-market teams can explain identity governance, fewer payout holds, and safer onboarding decisions without hand-waving the operating layer.</li>
+      </ul>
+    </article>
+    <article class="depth-card">
+      <div class="ppri">Operating workflow</div>
+      <div class="workflow">
+        <div class="step"><b>1. Model the refresh lane.</b><br>Capture account cohort, owner, evidence packet, screening posture, and release pressure in one record.</div>
+        <div class="step"><b>2. Score the release posture.</b><br>Separate healthy, watch, and blocked cases before payout, treasury, or onboarding teams move the account forward.</div>
+        <div class="step"><b>3. Route the decision.</b><br>Turn the case into a defensible unblock, repair, or escalation path with one visible owner and next action.</div>
+      </div>
+    </article>
+  </div>
+</section>
+<section class="section">
+  <div class="sh"><h2>What these repos have in common</h2><div class="note">shared Kinetic Gain pattern</div></div>
+  <div class="board">
+    <article class="pcard"><div class="ptop"><div class="pnum">01</div><div class="ppri">OPERATING LANE</div></div><h3>Risk, owner, proof, next action.</h3><p class="pdesc">Each surface turns a messy operational domain into a compact decision lane that leaders, operators, and technical teams can inspect together.</p></article>
+    <article class="pcard"><div class="ptop"><div class="pnum">02</div><div class="ppri">SAFE DEMO DATA</div></div><h3>Representative data, no live secrets.</h3><p class="pdesc">The repos use synthetic records and public-safe evidence shapes only. No account, customer, bank, processor, credential, or production KYC data belongs in the public proof surface.</p></article>
+    <article class="pcard"><div class="ptop"><div class="pnum">03</div><div class="ppri">BUYER-READABLE</div></div><h3>Built for GTM and diligence.</h3><p class="pdesc">The same page has to make sense to a founder, CFO, compliance lead, product owner, engineer, and investor reviewer without requiring a private walkthrough.</p></article>
+    <article class="pcard"><div class="ptop"><div class="pnum">04</div><div class="ppri">PROTOCOL FIT</div></div><h3>Evidence before claims.</h3><p class="pdesc">Every route points back to concrete artifacts, gates, and review posture so the story is inspectable rather than just positioned.</p></article>
+  </div>
+</section>
+HTML;
+}
+
 function render_overview(): string
 {
     $body = '<section class="section"><div class="sh"><h2>Overview</h2><div class="note">where KYC refresh pressure surfaces first</div></div>' . render_overview_cards() . '</section>'
+        . render_product_depth()
         . '<section class="section"><div class="sh"><h2>Board questions this answers</h2><div class="note">identity exposure · unblock cost · control investment</div></div><div class="board">'
         . '<article class="pcard"><div class="ptop"><div class="pnum">01</div><div class="ppri">EXPOSURE</div></div><h3>Which accounts are unsafe to advance?</h3><p class="pdesc">Beneficial-owner packet gaps, stale sanctions screening, expiry drift, and missing final review memos stay visible before onboarding, payout, or treasury teams move the account forward.</p></article>'
         . '<article class="pcard"><div class="ptop"><div class="pnum">02</div><div class="ppri">SAVINGS</div></div><h3>Where is manual review creating avoidable drag?</h3><p class="pdesc">The router ties documents, screening state, account lane, owner, and next action together so FinCrime, onboarding, and treasury teams stop rebuilding the same KYC case packet.</p></article>'
